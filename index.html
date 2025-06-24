@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Interactiva de Matemáticas</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div id="app-container">
+    <header>
+        <h1>Plataforma Interactiva de Matemáticas</h1>
+        <div id="mode-selector">
+            <button id="theory-mode-btn" class="active">Teoría y Ejemplos</button>
+            <button id="practice-mode-btn">Ejercitación Práctica</button>
+        </div>
+        <nav id="topic-nav">
+        </nav>
+    </header>
+
+    <main id="theory-container">
+        <section id="fundamentals-section">
+            <h2 id="topic-title-theory"></h2>
+            <div id="fundamentals-content"></div>
+        </section>
+
+        <section id="example-area">
+            <h3>Ejemplos Guiados (Fase 2)</h3>
+            <div class="difficulty-selector" id="example-selection-area"></div>
+            <div class="card" id="guided-example-card">
+                <p><strong>Dificultad:</strong> <span id="example-difficulty"></span></p>
+                <p><strong>Misión:</strong> <span id="guided-mission"></span></p>
+                <p><strong>Desarrollo:</strong></p>
+                <div id="guided-development"></div>
+                <p><strong>Respuesta:</strong> <code id="guided-answer"></code></p>
+            </div>
+        </section>
+
+        <section class="interactive-section">
+            <h4>Ahora, replica la respuesta tú mismo</h4>
+            <p>Arrastra los elementos del teclado para construir la respuesta del ejemplo.</p>
+            <div class="interactive-area">
+                <div id="answer-box-theory" class="drop-zone"></div>
+                <div id="keyboard-theory" class="keyboard"></div>
+            </div>
+            <div class="controls">
+                <button id="check-answer-btn-theory">Verificar</button>
+                <button id="clear-answer-btn-theory">Limpiar</button>
+            </div>
+            <p id="feedback-message-theory" class="feedback-message"></p>
+        </section>
+    </main>
+
+    <main id="practice-container" class="hidden">
+        <h2 id="topic-title-practice"></h2>
+        <p>Selecciona una dificultad y resuelve el ejercicio. Si te equivocas, se mostrará el desarrollo completo.</p>
+
+        <div class="difficulty-selector" id="practice-selection-area"></div>
+
+        <section class="interactive-section">
+            <div class="card">
+                <p><strong>Dificultad:</strong> <span id="practice-difficulty"></span></p>
+                <p><strong>Ejercicio:</strong> <span id="practice-mission"></span></p>
+            </div>
+
+            <h4>Ingresa tu respuesta:</h4>
+            <div class="interactive-area">
+                <div id="answer-box-practice" class="drop-zone"></div>
+                <div id="keyboard-practice" class="keyboard"></div>
+            </div>
+            <div class="controls">
+                <button id="check-answer-btn-practice">Revisar</button>
+                <button id="clear-answer-btn-practice">Limpiar</button>
+            </div>
+            <p id="feedback-message-practice" class="feedback-message"></p>
+        </section>
+
+        <section id="practice-solution-container" class="hidden">
+            <h3>Desarrollo del Ejercicio</h3>
+            <div class="card solution-card">
+                <div id="practice-development"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto de aprendizaje interactivo</p>
+    </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
